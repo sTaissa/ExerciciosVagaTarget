@@ -1,0 +1,31 @@
+#calcula a sequência de fibonacci até achar ou passar do número informado
+def calcFibonacci(num):
+  anterior = 0
+  proximo = 0
+
+  while (proximo <= num):
+    if (proximo == num):
+      return True
+    
+    proximo = proximo + anterior
+    anterior = proximo - anterior
+
+    if(proximo == 0):
+      proximo += 1
+
+n = -1
+
+#continua pedindo um número até que seja informado corretamente um inteiro positivo
+while (n < 0 ): 
+  try: 
+    n = int(input("Informe um numero positivo\n"))
+  except:
+    print("O valor inserido precisa ser um número inteiro")
+
+#chama a função que retornará True se o número informado for achado na sequência
+pertence = calcFibonacci(n)
+
+if (pertence == True):
+  print("O numero", n, "esta na sequencia de Fibonacci!")
+else:
+  print("O numero", n, "nao esta na sequencia de Fibonacci!")
